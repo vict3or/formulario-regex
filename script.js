@@ -4,7 +4,7 @@ var password = document.querySelector('#password')
 var email = document.querySelector('#email')
 var submitButton = document.querySelector('#submit')
 
-// selector variables for alert with regex
+// selector variables for alert
 var alertUserName = document.querySelector('#alertusername')
 var alertUserPassword = document.querySelector('#alertuserpassword')
 var alertUserEmail = document.querySelector('#alertuseremail')
@@ -17,7 +17,7 @@ var counterForSubmitCondition = false
 
 //functions 
 
-submitButton.addEventListener('click', function (e) {
+function submitCheck (e) {
   e.preventDefault()
   if(counterForSubmitCondition){
     alertSubmit.style.color = 'blue'
@@ -26,45 +26,40 @@ submitButton.addEventListener('click', function (e) {
     alertSubmit.style.color = 'red'
     alertSubmit.innerHTML = 'Infelizmente, seus dados não batem com os pré-requisitos. Tente novamente.'
   }
-})
+}
 
-
-function handleInputFieldOnKeyup(element, tagToChange, condition, message, boolean = true) {
-  if (boolean) {
-    element.addEventListener('keyup', function () {
-      if (condition.test(element.value)) {
-        tagToChange.innerHTML = message
-      } else {
-        tagToChange.innerHTML = ''
-        counterForSubmitCondition = true
-      }
-    })
+function userNameCheck () {
+  if (regexUser.test(userName.value)) {
+    alertUserName.innerHTML = "O nome de usúario não pode conter espaços!"
   } else {
-    element.addEventListener('keyup', function () {
-      if (condition.test((element.value).toUpperCase())) {
-        tagToChange.innerHTML = ''
-        counterForSubmitCondition = true
-      } else {
-        tagToChange.innerHTML = message
-      }
-    })
+    alertUserName.innerHTML = ''
+    counterForSubmitCondition = true
   }
 }
 
-password.addEventListener('keyup', function () {
+function emailCheck () {
+  if (regexEmail.test((email.value).toUpperCase())) {
+    alertUserEmail.innerHTML = ''
+    counterForSubmitCondition = true
+  } else {
+    alertUserEmail.innerHTML = "O email deve ser gmail!"
+  }
+}
+
+function passWordCheck () {
   if ((password.value.replace(/[^A-Z]/g, "").length >= 5) && (password.value.replace(/[^!@#$%.%*]/, "").length >= 6) && (password.value.replace(/^-/, ""))) {
     alertUserPassword.innerHTML = ''
     counterForSubmitCondition = true
   } else {
     alertUserPassword.innerHTML = "A senha deve conter 5 letras maiusculas, 6 caracteres especiais e dois hífens"
   }
-})
+}
 
+//function calls
 
-// function calls
-handleInputFieldOnKeyup(userName, alertUserName, regexUser, "O nome de usúario não pode conter espaços!")
-handleInputFieldOnKeyup(email, alertUserEmail, regexEmail, "O email deve ser gmail!", false)
-
-
+password.addEventListener('keyup', passWordCheck)
+email.addEventListener('keyup', emailCheck)
+userName.addEventListener('keyup', userNameCheck)
+submitButton.addEventListener('click', submitCheck)
 
 
