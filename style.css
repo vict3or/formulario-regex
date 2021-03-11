@@ -1,0 +1,54 @@
+body{
+  text-align: center;
+  display: block;
+  background-color: rgb(250, 250, 234);
+}
+
+#container{
+  background-color: rgb(255, 253, 253);
+  display: block;
+  text-align: left;
+  width: 30%;
+  height: 60vh;
+  margin-left: 35%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+
+input{
+  width: 100%;
+  margin-bottom:7px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  border-color: black;
+}
+
+.submit{
+  margin-top:10px;
+}
+
+button{
+  border: none;
+  outline: none;
+  background-color: grey;
+  color: white;
+  width: auto;
+  padding: 0rem 1rem;
+  border-radius: 0.2rem;
+}
+
+button:hover{
+  background-color:  rgba(128, 128, 128, 0.589);
+  cursor: pointer;
+}
+
+.passwordCaracters{
+  display: flex;
+}
+
+p{
+  color:red
+}

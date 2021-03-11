@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Formulário</h1>
+  <div id="container">
+      <form autocomplete="off">
+          <div class="form name">
+              <h4>Nome de usuário: </h4>
+              <input type="text" id="name"> 
+              <p id="alertusername"></p>
+          </div> 
+          <div class="form password">
+                <h4>Senha(deve conter 5 letras maiusculas, 6 caracteres especiais e dois hífens): </h4>
+                <input type="password" id="password">
+                <p id="alertuserpassword"></p>
+          </div>
+          <div class="form email" >
+               <h4>Email(somente gmail): </h4>
+               <input type="email" id="email">
+               <p id="alertuseremail"></p>
+          </div>
+          <div class="form submit">
+                <button id="submit">Submit</button>
+                <p id="alertsubmit"></p>
+          </div>
+      </form>
+</div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
